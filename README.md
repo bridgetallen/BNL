@@ -9,6 +9,9 @@ Step 2 - Use FastQC to check quality of data
 Step 3 - Quality control - use trimmomatic to trim data
 Step 4 - Post QC Read assessment using FastQC
 Step 5 - Use MetaSPAdes to assemble
+Step 6- contigs input_assembly_refs
+min_contig_lengthMin Contig Length
+output_nameOutput name
 Step 6- Use Virsorter to identify viral genomes 
 Step 7 - potentially viral Use Virsorter
 Step 8 - use vConTACT2 to classify sequences
