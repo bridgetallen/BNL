@@ -48,3 +48,37 @@ output_suffixAverage Expression Matrix Name Suffix
 Step 8 - Identify Differential Expression using DESeq2
 Step 9 - Create Feature Set and Filtered Differential Expression Matrix
 Step 10 -  Functional enrichment of differential expressed featureset
+
+
+Client-Server Architecture 
+
+common verbs:
+
+get "read"
+post "create"
+put "update"
+delete "delete"
+
+KBase SDK
+
+- when you run an app in a narrative, it runs in a docker container on KBase
+
+User Input - parameters are listed as references, think of these as URL's to download the files, elements can be customized to accept different kinds of data
+
+App Code and Data Management - input is converted to a python dictionary, then algorithms are run
+
+Output and Reporting - KBase report is generated 
+
+Command-line Interface - called kb-sdk and makes it easy to initiliaze, validate, compile, and test your app
+
+Docker - apps run inside docker images and the interface runs within a container
+
+Composing apps - when you install and run another app within yyours the other app runs on it's own  seperate docker container. also tracked seperately from python dependancies 
+
+KBase Types and Parameters - config files use used for parameters and output 
+
+Working with files and data (Scratch and the Workspace) - scrath is ephemeal so any files in this directory are gone when your app stops running. workspace use if you want the user to see in the narrative.  a dataset in the workplace is referred to as an object 
+
+The Catalog - registry of the apps. three catalogs for testing purposes: dev, beta, and release. dev = prototype beta = requires testing, release = visible to normal kbase users
+
+Publishing 
