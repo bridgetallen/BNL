@@ -87,6 +87,8 @@ every vector space has a basis
 
 dowloading kbase kb-sdk
 
+(Stopped at part 3.4 because I was not able to get my token without my account)
+
 mkdir /home/bridgetallen/bin/
 # Generate the kb-sdk script and put it in ~/bin/kb-sdk
 docker run kbase/kb-sdk genscript > /home/bridgetallen/bin/kb-sdk
@@ -121,3 +123,23 @@ Arabidopsis RNA-seq Analysis Tutorial Questions
 3. It says that my expression matrix was successful, but I don't see useful information in the details.
 4. Since we know that Arabidopsis is normal, if we saw an unusual dot on the PCA plot, would it be of interest or a known outlier?
 5. What are the most common and most uncommon apps used in this analysis?
+
+HTTP Project 
+
+
+# Open virtual environment
+
+bridgetallen@LAPTOP-3A7KT35D:~/bridgetallenContigFilterHelloWorld$ source ~/venv/bin/activate
+
+# cd home and then open the file that holds the flask app 
+
+(venv) bridgetallen@LAPTOP-3A7KT35D:~/bridgetallenContigFilterHelloWorld$ cd ~
+(venv) bridgetallen@LAPTOP-3A7KT35D:~$ ls app.py
+\app.py
+(venv) bridgetallen@LAPTOP-3A7KT35D:~$ python app.py
+
+Flask PokeAPI Proxy
+
+HTTP Server and Client
+
+API - Application Programming Interface (example - weather app)
