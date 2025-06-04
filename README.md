@@ -82,3 +82,42 @@ Working with files and data (Scratch and the Workspace) - scrath is ephemeal so 
 The Catalog - registry of the apps. three catalogs for testing purposes: dev, beta, and release. dev = prototype beta = requires testing, release = visible to normal kbase users
 
 Publishing 
+
+every vector space has a basis
+
+dowloading kbase kb-sdk
+
+mkdir /home/bridgetallen/bin/
+# Generate the kb-sdk script and put it in ~/bin/kb-sdk
+docker run kbase/kb-sdk genscript > /home/bridgetallen/bin/kb-sdk
+chmod +x /home/bridgetallen/bin/kb-sdk
+# Add ~/bin to your $PATH if it is not already there
+export PATH=$PATH:/home/bridgetallen/bin/kb-sdk
+# You might want to put the above command in your ~/.bashrc or ~/.zshrc:
+echo "export PATH=\$PATH:/home/bridgetallen/bin/kb-sdk >> ~/.bashrc
+
+kb-sdk init -e -u bridgetallen bridgetallenContigFilterHelloWorld
+
+bridgetallenContigFilterHelloWorld
+
+git init
+git add .
+git commit -m 'Initial commit'
+
+git config --global user.name "Bridget Allen"
+git config --global user.email "ballen@bnl.gov"
+
+
+ git remote add origin https://github.com/bridgetallen
+ git push -u origin master
+
+ git remote remove origin
+git remote add origin https://github.com/bridgetallen/bridgetallenContigFilterHelloWorld.git
+
+Arabidopsis RNA-seq Analysis Tutorial Questions 
+
+1. If FastQC says your reads are no good, how is HISAT2 still able to run and align the reads
+2. What does a normalized distribution say about the the gene expression?
+3. It says that my expression matrix was successful, but I don't see useful information in the details.
+4. Since we know that Arabidopsis is normal, if we saw an unusual dot on the PCA plot, would it be of interest or a known outlier?
+5. What are the most common and most uncommon apps used in this analysis?
