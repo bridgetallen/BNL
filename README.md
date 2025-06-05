@@ -1,6 +1,6 @@
 # BNL
 
-Viral Analysis End-to-End
+# Viral Analysis End-to-End
 
 Metagenomic dataset from Global Ocean Viromes 
 
@@ -18,7 +18,7 @@ Step 8 - use vConTACT2 to classify sequences
 Step 9 - Use Prokka for predicting genes
 Step 10 - vConTACT2 again
 
-PEP 20 - The Zen of Python
+# PEP 20 - The Zen of Python
 
 PEP 8
 - code layout
@@ -30,7 +30,7 @@ PEP 8
 - comparisons
 - code should be readable and consistent
 
-RNA-seq Primer
+# RNA-seq Primer
 
 Step 1 - Upload Genome data
 Step 2 - Import single end reads from the internet (Parameters
@@ -59,7 +59,7 @@ post "create"
 put "update"
 delete "delete"
 
-KBase SDK
+# KBase SDK
 
 - when you run an app in a narrative, it runs in a docker container on KBase
 
@@ -85,38 +85,49 @@ Publishing
 
 every vector space has a basis
 
-dowloading kbase kb-sdk
+# dowloading kbase kb-sdk
 
-(Stopped at part 3.4 because I was not able to get my token without my account)
+Step 1: Check docker is installed correcly and that it can pull kbase 
 
-mkdir /home/bridgetallen/bin/
-# Generate the kb-sdk script and put it in ~/bin/kb-sdk
-docker run kbase/kb-sdk genscript > /home/bridgetallen/bin/kb-sdk
-chmod +x /home/bridgetallen/bin/kb-sdk
-# Add ~/bin to your $PATH if it is not already there
-export PATH=$PATH:/home/bridgetallen/bin/kb-sdk
-# You might want to put the above command in your ~/.bashrc or ~/.zshrc:
-echo "export PATH=\$PATH:/home/bridgetallen/bin/kb-sdk >> ~/.bashrc
+:~/suli/kb_sdk$ docker pull kbase/kb-sdk
 
-kb-sdk init -e -u bridgetallen bridgetallenContigFilterHelloWorld
+Step 2: make bin for directory you want to put kbase in, then run genscript and chmod
 
-bridgetallenContigFilterHelloWorld
+:~/suli/kb_sdk$ mkdir ~/suli/kb_sdk/bin
+:~/suli/kb_sdk$ docker run kbase/kb-sdk genscript > ~/suli/kb_sdk/bin/kb-sdk
+:~/suli/kb_sdk$ chmod +x ~/suli/kb_sdk/bin/kb-sdk
 
+Step 3: add to your path
+
+:~/suli/kb_sdk$ echo 'export PATH="$HOME/suli/kb_sdk/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+Step 4: Check it worked 
+
+~/suli/kb_sdk$ kb-sdk
+:~/suli/kb_sdk$ kb-sdk version
+
+Step 5: initialize with github user and your module name 
+
+~/suli/kb_sdk$ kb-sdk init --language python --user bridgetallen bridgetallenContigFilterHelloWorld
+
+:~/suli/kb_sdk$ cd bridgetallenContigFilterHelloWorld
+make
+
+:~/suli/kb_sdk/bridgetallenContigFilterHelloWorld$ cd bridgetallenContigFilterHelloWorld  # only needed if not already in the correct location
 git init
 git add .
 git commit -m 'Initial commit'
 
-git config --global user.name "Bridget Allen"
-git config --global user.email "ballen@bnl.gov"
+:~/suli/kb_sdk/bridgetallenContigFilterHelloWorld$ git push -u origin master
+Username for 'https://github.com': bridgetallen
+Password for 'https://bridgetallen@github.com':
 
 
- git remote add origin https://github.com/bridgetallen
- git push -u origin master
+:~/suli/kb_sdk/bridgetallenContigFilterHelloWorld$ cd ~/suli/kb_sdk/bridgetallenContigFilterHelloWorld
 
- git remote remove origin
-git remote add origin https://github.com/bridgetallen/bridgetallenContigFilterHelloWorld.git
-
-Arabidopsis RNA-seq Analysis Tutorial Questions 
+:~/suli/kb_sdk/bridgetallenContigFilterHelloWorld$ kb-sdk test
+# Arabidopsis RNA-seq Analysis Tutorial Questions 
 
 1. If FastQC says your reads are no good, how is HISAT2 still able to run and align the reads
 2. What does a normalized distribution say about the the gene expression?
@@ -124,14 +135,21 @@ Arabidopsis RNA-seq Analysis Tutorial Questions
 4. Since we know that Arabidopsis is normal, if we saw an unusual dot on the PCA plot, would it be of interest or a known outlier?
 5. What are the most common and most uncommon apps used in this analysis?
 
-HTTP Project 
+# HTTP Project 
+
+cloning vs. creating a new repository 
+
+Action	GitHub UI	Command Line
+Create new repo	“+” → New repository	mkdir → git init → git remote add
+Clone existing repo	Click “Code” → Copy HTTPS link	git clone https://...
 
 
-# Open virtual environment
+
+1.  Open virtual environment
 
 bridgetallen@LAPTOP-3A7KT35D:~/bridgetallenContigFilterHelloWorld$ source ~/venv/bin/activate
 
-# cd home and then open the file that holds the flask app 
+2. cd home and then open the file that holds the flask app 
 
 (venv) bridgetallen@LAPTOP-3A7KT35D:~/bridgetallenContigFilterHelloWorld$ cd ~
 (venv) bridgetallen@LAPTOP-3A7KT35D:~$ ls app.py
@@ -143,3 +161,4 @@ Flask PokeAPI Proxy
 HTTP Server and Client
 
 API - Application Programming Interface (example - weather app)
+
