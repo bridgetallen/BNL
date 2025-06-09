@@ -127,6 +127,7 @@ Password for 'https://bridgetallen@github.com':
 :~/suli/kb_sdk/bridgetallenContigFilterHelloWorld$ cd ~/suli/kb_sdk/bridgetallenContigFilterHelloWorld
 
 :~/suli/kb_sdk/bridgetallenContigFilterHelloWorld$ kb-sdk test
+
 # Arabidopsis RNA-seq Analysis Tutorial Questions 
 
 1. If FastQC says your reads are no good, how is HISAT2 still able to run and align the reads
@@ -144,17 +145,44 @@ Create new repo	“+” → New repository	mkdir → git init → git remote add
 Clone existing repo	Click “Code” → Copy HTTPS link	git clone https://...
 
 
+Preliminary steps: 
 
-1.  Open virtual environment
+1. Make a new repository on the github browser
 
-bridgetallen@LAPTOP-3A7KT35D:~/bridgetallenContigFilterHelloWorld$ source ~/venv/bin/activate
+In Ubuntu:
 
-2. cd home and then open the file that holds the flask app 
+2.  Go to your main project directory (ex. suli folder),then create a new module for the project (e.g. flask-http-assignment). Make sure to stay in this directory at all times during the project.
 
-(venv) bridgetallen@LAPTOP-3A7KT35D:~/bridgetallenContigFilterHelloWorld$ cd ~
-(venv) bridgetallen@LAPTOP-3A7KT35D:~$ ls app.py
-\app.py
-(venv) bridgetallen@LAPTOP-3A7KT35D:~$ python app.py
+3. Create and/or activate virtual environment.
+
+4. pip install flask. 
+
+5. create app.py.
+
+6. in the vim, Built a Flask Server with Three Endpoints (see app.py for code).
+
+GET /
+Returns a plain "Hello World!" message.
+
+POST /echo
+Accepts JSON in the request body and returns it back in the response (an echo server).
+
+GET /pokemon/<name>
+Acts as a proxy to the PokeAPI, returning real-time Pokémon data for any name passed in the URL (e.g., /pokemon/eevee).
+
+7. esc, :wq, enter to leave the vim.
+
+8. run your server with python app.py.
+
+9. for the first end point: open http link (given in the output for python app.py) and see hello world.
+
+10. for the second end point: open a new ubuntu tab and use the curl command and http link plus "/echo \" to enter the content type and a message to see the echo reflected in the output.
+
+11. for the third end point: manually type in any pokemon to the end of the http link to see the output example: add "/pikachu".
+
+12. initilize git, add your files, commit, specify branch, add origin (URL from browser), push (anytime you need to make changes to the code in vim, you must stage changes, commit them, and push them).
+
+13. Check github to ensure your changes are saved.
 
 Flask PokeAPI Proxy
 
@@ -162,3 +190,53 @@ HTTP Server and Client
 
 API - Application Programming Interface (example - weather app)
 
+BASH Variables 
+
+your_kbase_username=bridgetallen
+username=${bridgetallen}
+module_name=ContigFilter
+
+
+git remote add origin https://github.com/bridgetallen/HTTP-Assignment-.git
+git branch -M main
+git push -u origin main
+
+Abstract Data Types (ADT)
+
+Project Applications 
+
+- Build a Web API from scratch 
+
+- API's power most modern apps
+- expereince building and using a flask (a lightweight web framework)
+-learn how to define endpoints, handle HTTP methods, and return structured data using JSON
+
+- work with JSON and HTTP Requests
+
+- JSON is the standard data format for web and mobile communication
+- you learn how to send and receive data using curl, which mimics how real apps communicate with servers 
+
+- Use a proxy pattern
+
+- your pokemon acts as a proxy 
+- it receives a user requests, forwards it to an external API, and returns the result 
+-this is how apps like the weather app, stock trackers, and flight search tools work behind the scenes 
+
+- understand modular, testable code
+
+- each route has a clear single responsibility
+- you can easily test each rpute using tools like curl or postman 
+
+- version control and collaboration
+
+- git workflows
+- collaborating on open source or team projects 
+
+- real life applications 
+
+- get / hello world - health check to confir, the server is running (used in production)
+- post /echo - forms, chat apps, or APIs that accept and valicate user input 
+- GET /pokemon/<name> - search finctions or recommendation systems using external APIs 
+-  JSON parsing - used in apps like slack, instagram, and mobile weather apps 
+- flask + rest API - used in microservices, data dashboards, machine learning model deployment
+- proxy endpoints - used in bioinformatics tooks, financial apps, and news aggregators to fetch external data and format it internally 
