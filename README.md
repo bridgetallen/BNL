@@ -203,6 +203,37 @@ git push -u origin main
 
 Abstract Data Types (ADT)
 
+definition- math model for data types defines by its behavior from the pov of a user of the data (specifically in terms of possible values, posible operations of this data types, and the bahvior of these operations)
+
+ADT vs. Data structure 
+
+- ADT is a conceptual interface
+- data strcuture - actual implementation (e.g. stack implemented with an array or linked list)
+- the key is abstraction - hide how data is stored, focus on what operations do 
+
+formal specification
+- described by interface and operations (incliding pre-conditions and post-conditions)
+- contraints define behavior (e.g. for a stack) push(x) then pop(x) must return x
+
+Operational semantics 
+- ADT's can be mutable, where state changed over time 
+- E.G. operations beyond basics create(), empty(), hash(),
+
+Multiple instances & Aliasing 
+- ADT's must support multiple instances independantly 
+-changes to one ADT pbject should not affect another - important for corectness
+
+Complexity Considerations 
+- ADT's often specify time/space constraints for operations, even though implementations differ. 
+- e.g. a stac ADT remains the same conceptually whether backed by an array or a list 
+
+Common ADT's 
+- collections- list, set, multiset, map 
+- linear structures
+- hirearchial structures 
+- priority structures - 
+
+
 Project Applications 
 
 - Build a Web API from scratch 
@@ -240,3 +271,50 @@ Project Applications
 -  JSON parsing - used in apps like slack, instagram, and mobile weather apps 
 - flask + rest API - used in microservices, data dashboards, machine learning model deployment
 - proxy endpoints - used in bioinformatics tooks, financial apps, and news aggregators to fetch external data and format it internally 
+
+# Different ways to make matrice multiplication functions in the command line 
+
+Easiest way: download numpy in the current directory, enter a vim, paste matrix A and B, exit vim, run script with python3 matrix_mult.py
+
+How to hook it up to the HTTP assignment 
+
+use the post method and a multiplication route, then run a curl command making sure app.py is running 
+
+alternative (not using):
+
+- bash script: #!/bin/bash, define matrix A and then B, check dimension compatibility, initialize result matrix C, print result 
+- not scalable for large matrices
+
+Proof for checkerboard equation:
+
+- even with an even number of squares on the checker board, you're unable to cover all of the squares with dominos because with the top right corner and bottom left corner missing, it creates an irregular matrix. 
+
+- while the board doesnt have to be a perfect square, the blocks need to be removed in sets of 2.4,6 etc
+
+6/11
+
+recursive- the function calls itself in order to solve a problem 
+
+Exponentiation with matrices
+
+| Feature       | Plain python         | NumPy
+|---------------------------------------------
+|               |
+|Speed          | slower
+|Syntax         | verbose (manual loops)
+|Memory         |
+|Math functions |
+|
+|
+|
+|
+|
+|
+|
+
+
+
+
+
+
+
