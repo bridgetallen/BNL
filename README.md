@@ -312,9 +312,114 @@ Exponentiation with matrices
 |
 |
 
+Github Actions 
 
+- Github actions is a CI/CD (Continuous integration / continuous deployment )
+ platfform built into github. it automates tasks like:
 
+ - running test when you push code
+ - building and deploying apps
+ - checking code formatting or linting 
+ - triggering workflows on pull requests, issues, or scheduled items 
 
+ github actions = repeatable tasks done automatically every time you update your code 
 
+ how does it work?
 
+ - you create workflows using YAML files stored in: .github/workflows/
+ 
+ Each workflow is made up of:
 
+ - events - what triggers the workflow (e.g. push, pull_requests)
+ - jobs- tasks to run (e.g. run tests, deploy code)
+ - steps- individual commands (install dependencies, run a script)
+ - runners- the virtual machine that runs your jobs (linux, windows, macOS)
+
+common use cases
+
+task
+
+run tests                   every push triggers a test suite
+build projects              compile a react app, flask app, etc.
+lint/code/style             auto-check for PEP8, BLACK, ESLint, etc.
+deploy app                  Auto-deploy to Keroku, AWS, or Github pages
+scheduled tasks             run data sync scripts nightly
+
+- workflows- configurable automated process that runs one or more jobs. workflows are defined using YAML files and can be triggered by events in the repository, manually or on a schedule. These workflows are stored in the .github/workflows directory of the repo
+
+events- are specific activities in a repo that trigger workflow runs. examples include creating a pull request, opening an issue, or pushing a commit . workflows can also be triggered on a schedule or manually.
+
+jobs- set of steps ecexuted on the same runner. each step can be a shell script or an action. jobs can run sequentially or in parellel, they can share data between steps. jobs can also have depencies on other jobs.
+
+actions- custom application for the github actions platform that performs a complex but freuently repeated task. actions help reduce repetitive code in workflow files. they can be used to pull a git repo, set up a built environment, or cinfigure cloud provider credentials
+
+runners- servers that execute workflows. github provides ubuntu linux, microsoft windows, and macOS runners, each workflow rin takes place on a new, freshly provided vim. users can also host their own runners if they need a different operating system or specific hardware setup. 
+
+Fibonacci Numbers:
+
+The Fibonacci sequence is a series of numbers wheere each number is the sum of the two preceding ones:
+
+starts like this: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 ...
+
+- the ratio of consecutive fibonacci numbers gets closer and closer to the golden ratio (1.61803...)
+
+Recursion vs. Induction
+
+recursion is when a function calls itself to solve a problem. it works by
+
+- breaking a problem into smaller subproblems
+- solving the base case (the simplest form )
+- letting the function call itself with a smaller output
+
+recursion is common in algorithms (searching, sorting, tree travlersal ) and math definitions 
+
+indiction is a proff technique used in math to prove statements that are true for all natural numbers. it has two steps 
+
+1. base case: prove the statement is true for the first value (usually n=0 or n=1)
+2. inductive step- assume it's true for n=k, and then prove it's also true for n=k+1
+
+if both steps work, the statement is true for all natural numbers.
+
+how they relate:
+
+- inuction proves that a recursive function is correct for all inputs. 
+- you can define functions recursively, and prove their properties indictively. 
+
+analogy-
+
+- recursion = gow do i solve this step based on much smaller steps?
+- indiction = how do i prove this step works based on smaller steps. 
+
+uses of recursion in cs:
+
+concept                      use of fibonacci
+recursion                   intro to recursive function design 
+dynamic programming         
+fibonacci heap
+complexity
+algorithm analysis
+
+Uses of matrix multiplication in cs:
+
+- image processing 
+- machine learning
+- graphics and 3D rotation 
+- data compression and linear transformations 
+
+key properties 
+
+- multiplying matrices are associative, distributive, and not communicative
+
+special types of matrix multiplication 
+- transpose 
+- inverse 
+
+what it matters for 
+- graphics- rotation, scaling, projection in 2d/3d
+- ML/AI- matric math is the foundation of backpropagation and gradient descent 
+- Graph Theory- adjacency matriced use 
+- Search Engines- Ranking algorithms use matrix operations 
+
+Use pytest to write a unit test for your HTTP Assignment repo (for the exponents of 2)
+
+- 
