@@ -422,4 +422,84 @@ what it matters for
 
 Use pytest to write a unit test for your HTTP Assignment repo (for the exponents of 2)
 
-- 
+6/16
+
+A decorator is a high order function that wraps another function to extend or modify its behavior without changing the original functions code.
+
+- basic decorator pattern:
+
+decorator(fn) takes a function as an input
+it returns wrap, a new function that:
+- logs the og function
+- calls fn with whatever arguments were passed in  
+
+the .apply(this, args) preserved context and passes the argument correctly 
+
+useful for: debugging or adding logging around any function 
+
+- time decorator (synchronous)
+
+- records the start and end time of the functions execution 
+- logs the timew taken in ms
+
+useful for: measure performance of CPU= heavy operations (e.g. sorting, loops)
+
+- time decorator (async version)
+
+same as the sync version but works with async functions 
+uses await to make sure it measures the full tyime of the async call
+
+useful for: time http requests, set timeout, database calls, or file reading 
+
+- memoize decorator (caching results)
+
+stores reviously computed results in a cache (lookupTable)
+if the same input is seen again, it skips recomputing and returns the stored results
+
+great for recursive functions like fibonacci, or expensive calculations that get repeated.
+
+- once decorator 
+
+allows a finction to only run once 
+cached the result and reuses it for all future calls
+
+useful for initializing logic, singleton pattern, or one-time configuration 
+
+- trottle decorator
+
+ensures that fn is only called once per interval ms
+ignores extra calls that happen too soon
+
+uses: limit how often a finction can run (e.g. prevent API scam or UI overload from rapid clicks)
+
+- after decorator 
+
+ignores the finction call until its been triggered count times 
+after that the finction runs normally 
+
+uses: only shows a popup/ help tip after the user has performed an action multiple times 
+
+- debounce deocorator 
+
+delays the function until the user calling it for interval ms
+restarts th timer every time the function is triggered 
+
+use: wait intil typing stops beofre sending a search requests. prevent rapiud button clicks 
+
+- curry decorators 
+
+transforms a function so it can be called one argument at a time 
+returns a new function until all arguments are provided 
+
+use: functional programming, patrial application, clean and resuable code composition 
+
+bigint fionacci with parametrization 
+
+- JS numbers are only precise up to Number.MAX_SAFE_INTEGER. to go beyond that (e.g., 79th fibonacci) we use BigInt
+
+
+In my code we used:
+
+@lru_cache (least recently used cache). irt is a memoization decorator that automatically caches the results of function calls based on the argument passed to it
+
+ssh ac.ballen@login1.chicago.kbase.us
