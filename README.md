@@ -503,3 +503,13 @@ In my code we used:
 @lru_cache (least recently used cache). irt is a memoization decorator that automatically caches the results of function calls based on the argument passed to it
 
 ssh ac.ballen@login1.chicago.kbase.us
+
+ssh-keygen -t ed25519 -C "bridgettallenn@gmail.com"
+
+
+# SSH configuration for dev1
+Host dev1
+  HostName dev1  
+  User ac.ballen
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
