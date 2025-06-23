@@ -513,3 +513,13 @@ Host dev1
   User ac.ballen
   IdentityFile ~/.ssh/id_ed25519
   IdentitiesOnly yes
+
+# how to reconnect dev1 to repo
+
+1. log out, back to home directory
+2. ssh-add -l
+3. ssh-add, enter passphrase
+4. ssh dev1
+5. ssh-add -l
+6. cd bridgetallencontigfilterappdemo/
+git status, git push 
