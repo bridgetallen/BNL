@@ -547,4 +547,56 @@ def test_invalid_params(self):
     # Assembly ref is wrong type
     with self.assertRaises(ValueError):
         impl.run_bridgetallenContigFilter_max(ctx, {'workspace_name': ws, 'assembly_ref': 1,
-            'min_length': 1, 'max_length': 1000000})
+            'min_length': 1, 'max_length': 100
+
+Wednesday 6/25
+
+OSI Model 
+
+open systems interconnection model - gives a basis for the coordination of standards development for the purpose of systems interconnection 
+
+components of the copmmunication system 
+
+1. physical layer 
+2. data link layer 
+3. network layer
+4. transport layer
+5. session layer
+6. presentation layer
+7. application layer
+
+SQL Notes - june 26
+
+SELECT * = retrieve all of the data from the columns 
+
+concatenation operator || to concatenate the first name, space, and last name of every customer.
+
+you can assign a column alias full_name to the first column of the query
+
+6/27 Unit testing and TDD
+
+unit testing is the practice of testing individual parts if the code - usually finctions or methods - to make sure they work correctly insiolation 
+
+TDD- write tests before the code 
+
+unit tests:
+
+- input/output behavior: does the function return the right results 
+- edge cases: empty input, huge input, incorrect types 
+- exceptions: does it raise an error when it should 
+
+Ideas for the LLM Test; 
+
+test for valid input, invalid or currupt input, if there's a missing file, if its the wrong file format, to accept parameters. 
+
+Indentation rules for python 
+
+1. every block (after a colon) must be indented
+2. lines inside of a block must have the same level of indentation 
+3. all looped lined stay together 
+4. inside if, else, elif
+5. inside for and while loops 
+6. insid def or class
+7. when you nest structures each new block indents again 
+
+leet code problems
