@@ -600,3 +600,80 @@ Indentation rules for python
 7. when you nest structures each new block indents again 
 
 leet code problems
+
+inorder tree traveral 
+- from typing import Optional, list
+
+this line imports type hints: Optional[treenode]: means the value can be a TreeNode or None
+List[int]: the function will return a list of integers 
+
+class treenode:
+defines a binary tree:
+
+def __init__(self, val=0, left=None, right=None):
+    self.val = val
+    self.left = left
+    self.right = right
+
+val = value in this node
+left = pointer to the left child (another treenode or none)
+right = pointer to the right child 
+
+class solution: a container where we define the method (as per LeetCode-stlye questions)
+
+def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+defines a function to perform in-order traversal (left -> node -> right) and return a list of visited node values 
+
+stack = []
+a stack is used to simulate recursion 
+it stores nodes we're visitng, especially while walking down the left side of the tree
+
+result = []
+this list will store the final result - the node values in in-order sequence.
+
+current = root 
+start the traversal at the root of the tree 
+
+what is a stack 
+
+- abstract data type that serves as collection of elements with two main operations 
+
+push- which adds and element to the collection and 
+pop which removes the most recently added element 
+
+the stack is an analogy to a set of physical items stacked one atop the other  
+
+iterative vs. recursive 
+
+iterative- uses loops (for, while), repeats a clock of code until a condition is met , usually releis on manual control (like a stack)
+
+recursive- a function calls itself, automatically uses the call stack to keep track of progess, requires a base case to stop recursion 
+
+different kinds of loops 
+a for loops is for when you know how many times you'll loops ahead of time
+
+for the binary tree you have to run until everything is processed which is what a while loop is for. 
+
+nested loops- the nestedloops split the traversal into two phases:
+- go as far left as possible 
+- backtrack one node at a time 
+
+outer loops purpose = keep processes nodes as long as we've not reached the end of the tree or there are still nodes saved in the stack that we havent visited
+
+inner loops purpose = go all the way dowwn the left subtree
+
+Unittest.mock
+
+allows you to replace parts of your syste munder test with mock objects and make assertions about how they have been used. 
+
+provides a core mock class 
+
+mock provides a patch() devcorstor that handles patching module and class level attributesd within the scope of a test, along with mentinel for creating unique objects 
+
+mock is designed for use with unittest and is based on the "action - assertion" pattern 
+
+the patch function can be used as a decorator or a context manager to replace the target object with a mock diring the test. the target is specified as a string in the form 'module.ClassName'.
+
+a context manager uses a with statement to temporarily change something just inside a block of code. outside of the block everything goes back to normal 
+
+a decorator chanfed the behavior for the entire function it decorates.
