@@ -677,3 +677,38 @@ the patch function can be used as a decorator or a context manager to replace th
 a context manager uses a with statement to temporarily change something just inside a block of code. outside of the block everything goes back to normal 
 
 a decorator chanfed the behavior for the entire function it decorates.
+
+http= hyper text transfer protocol 
+
+tmux - lets you manage multpile terminal sessions from one window. 
+
+       def test_intersect(self):
+        # in the test, use print() to put things in stdout
+        first_file = 'GSE203496_xmoo1_line_pooled_assembly.gff'
+        second_file = 'GSE240325_apo_rbfox_insitu_clustered.sorted.filtered_lite.gff'
+        self.serviceImpl.run_kb_bedtools_intersect(
+            self.ctx,
+            {
+                "workspace_name": self.wsName,
+                "first_file" : first_file,
+                "second_file" : second_file,
+                "output_name": "intersectOutput",
+            }
+        )
+
+
+                # - download report
+        # - assert that the report has expected contents
+
+    # def test_bam_to_fastq(self):
+        # in the test, use print() to put things in stdout
+        # bam_filename = 'wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam'
+        # staging_path = '/data/bulk/dpvs2004/'
+        #pathlib.Path(staging_path).mkdir(parents=True, exist_ok=True)
+        # output = BamConversion.bam_to_fastq(bam_filename)
+        # copyfile(output, os.path.join(self.scratch, 'out.fq'))
+        # with subprocess.Popen(f'ls -halF {self.scratch}'.split(' '), stdout=subprocess.PIPE) as proc:
+            # proc.wait()
+            # print(proc.stdout.read())
+        #bam = BamConversion(ctx={}, config={"clients": {DataFileUtil=DataFileUtil, KBaseReport=KBaseReport,
+        #       ReadsUtils=ReadsUtils}}, app_config={}),
