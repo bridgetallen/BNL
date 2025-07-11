@@ -678,6 +678,8 @@ a context manager uses a with statement to temporarily change something just ins
 
 a decorator chanfed the behavior for the entire function it decorates.
 
+new token token	MC7O6XG4LPDVQPFONSWLYPVDCMBZXX4T
+
 http= hyper text transfer protocol 
 
 tmux - lets you manage multpile terminal sessions from one window. 
@@ -712,3 +714,23 @@ tmux - lets you manage multpile terminal sessions from one window.
             # print(proc.stdout.read())
         #bam = BamConversion(ctx={}, config={"clients": {DataFileUtil=DataFileUtil, KBaseReport=KBaseReport,
         #       ReadsUtils=ReadsUtils}}, app_config={}),
+
+unix domain socket (UDS)
+
+- communication endpoint for exchanging data between processes executing in the same unix system 
+
+- refers to the domain argument value AF_UNIX that is passed to the function that created a socket system recource. the same communication domain is also selected by AF_LOCAL
+
+valid type argument values for UDS are:
+
+- sock_stream for a stream-orientated socker
+- sock_dgram for a datagram-oriented socket that preserves
+- sock_seqpacket for a sequences-packet socket that is connection-orientated 
+
+network socker 
+
+- software structure within a network node of computer network that serves as an endpoint for sending and receiving data across the network 
+
+- the structure and properties of a socket are defined by an API for the networking architecture
+
+- sockets are created only during the lifetime of a process of an application running in the node 
