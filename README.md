@@ -734,3 +734,75 @@ network socker
 - the structure and properties of a socket are defined by an API for the networking architecture
 
 - sockets are created only during the lifetime of a process of an application running in the node 
+
+what does each file do?
+
+the imp file is the entry point for the kbase app
+- it handles receving parameters from KBase
+- it takes the params from kbase and hands them to the bam conversion helper in utils.py
+- expects a dictionary back with report_name, report_ref, etc.
+
+1. sets up tools, file paths, version info
+2. has a method to convert BAM to FASTQ
+3. has another method to intersect GFF files
+4. returns a status when kbase asks
+
+utils.py
+- this file reads the bam file using bedtools and other logic
+- uploads the fastq file back to the kbase workspace 
+
+1. examplereadsapp - functions: uploads a fastq file to kbase, downloads reads from kbase using a reference id, creates a report with charts and tables from read data
+2. bam conversions - downloads bam file from the staging file, uploads file to kbase workspace
+
+server_test.py
+- you simulate running the app from start to finish using fake data or mocks.
+- mocks file downloads to avoid needing real files from the kbase staging area
+- calls your real apps entry function and checks that it runs
+
+@classmethod
+233     def bam_to_fastq(cls, bam_file, shared_folder=""): # add a     dict parameter so those parameter could be use
+234         with open(bam_file, 'rb') as file:
+235             bam_data = file.read().decode('utf-8', 'ignore')
+236         # best to use logging here so that messages are more v    isible
+237         logging.warning(f'{">"*20}{os.getcwd()}')
+238         with subprocess.Popen([
+239             'bedtools', 'bamtofastq', '-i', bam_file, '-fq', '    filename_end1.fq'
+240         ]) as proc:
+241             proc.wait()
+242         out_path = os.path.join(shared_folder, 'output.fq')
+243         copyfile('filename_end1.fq', out_path)
+244         # Upload the fastq file we just made to a reads object     in KBase
+245         # upa = self.upload_reads(
+246         #     name=params["output_name"], reads_path=out_path,     wsname=params["workspace_name"]
+247         # )
+248         #logging.warning(f">>>>>>>>>>>>>>>>>>>>{os.getcwd()}")
+249         #fastq_path = '/kb/module/test/filename_end1.fq'
+250         #fastq_file = open(fastq_path, 'r')
+251         #print(fastq_file.read())
+252
+253         return out_path
+
+7/16
+
+how to check a working directory in python
+
+copy left
+
+the legal technique of granting certain freedoms over copies of copyrighted work with the requirement that the same rights be perserved in derivative works. in this sense, freedoms refers to the use of th work for any purpose ad the ability to modify, copy, share, and redistribute the work, with or without a fee. Liscenses which implement copyleft can be used to maintain copyright comditions for work ranging from computer software, to documents, art, and scientific discoveries, and similar approached have even been applied to certain patents. 
+
+copyleft software liscences are considered protective or reciprocal. they require that information necessary for reproducing and modifying the work be made available to receipients of the software program. This info is most commonly 
+
+next steps 
+
+- print the first few lines of the fastq to see if/why it is inalid 
+- print the path 
+
+7/17 
+
+The problem: the bam file is not right. 
+
+goal:
+
+read up on samtools and bam to fastq to see if theres another way to try and convert the minimal fastq to the minimal bam and then the recovered fastq
+
+- put it in a folder instead of doing it in the home directory
